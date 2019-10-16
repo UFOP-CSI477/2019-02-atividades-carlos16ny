@@ -4,6 +4,12 @@
 echo ("Hello World")
 ```
 
+- Atividades Práticas:
+    - [X] Atividade-001
+        - [Competição Carrinho Rolimã](CSI477-2019-02-atividade-pratica-001/01-corrida.html)
+        - [Cálculo IMC](CSI477-2019-02-atividade-pratica-001/02-imc.html)
+        - **Extra** - [Escala Richter](CSI477-2019-02-atividade-pratica-001/03-escala.html)
+
 - Atividades:
     - [x] Atividade 00 
         - (First Commit) => readme.md
