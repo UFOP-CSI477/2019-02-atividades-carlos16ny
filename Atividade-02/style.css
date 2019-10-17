@@ -1,0 +1,118 @@
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px;
+}
+
+h2 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+
+h4 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h4 a {
+  color: tomato;
+}
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ul li {
+  padding: 10px 20px;
+  list-style: none;
+  background: grey;
+  margin: 0 10px;
+}
+
+ul li a {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+ul li a:hover {
+  color: aqua;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: tomato;
+}
+
+.table {
+  padding: 20px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.table table {
+  width: 80%;
+}
+
+.table table tr {
+  line-height: 40px;
+}
+
+.table table tr td {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.cadastro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cadastro form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+}
+
+.cadastro form label {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cadastro form input {
+  line-height: 26px;
+}
+
+.cadastro form select {
+  padding: 13px;
+}
+/*# sourceMappingURL=style.css.map */

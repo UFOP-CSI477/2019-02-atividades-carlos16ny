@@ -10,6 +10,7 @@ echo ("Hello World")
         - [Cálculo IMC](CSI477-2019-02-atividade-pratica-001/02-imc.html)
         - **Extra** - [Escala Richter](CSI477-2019-02-atividade-pratica-001/03-escala.html)
         - **Extra** - [Didática Infantil](CSI477-2019-02-atividade-pratica-001/04-didatica.html)
+    ---
 
 - Atividades:
     - [x] Atividade 00 
@@ -42,7 +43,7 @@ echo ("Hello World")
         - Cadastro de Clientes
         - Formulário de Vendas
         ---
-    - [ ] Atividade 02
+    - [x] Atividade 02
         - Incluir CSS na Atividade 01
         ---
     - [ ] Atividade 03
