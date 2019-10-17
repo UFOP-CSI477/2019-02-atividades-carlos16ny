@@ -1,0 +1,21 @@
+.container-fluid {
+    .row:nth-child(even) {
+        background: rgb(204, 204, 204);
+    }
+    .row:nth-child(odd) {
+        background: rgb(255, 88, 88);
+    }
+}
+
+.container {
+    .col-md-3 {
+        margin-left: auto;
+        img {
+            width: 100%;
+        }
+    }
+    .borda-01 {
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+}

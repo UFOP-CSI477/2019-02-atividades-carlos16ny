@@ -9,6 +9,7 @@ echo ("Hello World")
         - [Competição Carrinho Rolimã](CSI477-2019-02-atividade-pratica-001/01-corrida.html)
         - [Cálculo IMC](CSI477-2019-02-atividade-pratica-001/02-imc.html)
         - **Extra** - [Escala Richter](CSI477-2019-02-atividade-pratica-001/03-escala.html)
+        - **Extra** - [Didática Infantil](CSI477-2019-02-atividade-pratica-001/04-didatica.html)
 
 - Atividades:
     - [x] Atividade 00 

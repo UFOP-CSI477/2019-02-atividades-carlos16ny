@@ -1,0 +1,25 @@
+.row.titulo h1.tittle {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 36px;
+}
+
+.row.titulo img {
+  width: 200px;
+}
+
+.btn-yellow {
+  background-color: #ffe70d;
+  border-color: #0f0f0f;
+  border-width: 1.5px;
+  -webkit-box-shadow: 1px 1px 15px rgba(24, 24, 24, 0.534);
+          box-shadow: 1px 1px 15px rgba(24, 24, 24, 0.534);
+}
+
+.modal h5 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.modal img {
+  width: 100px;
+}
+/*# sourceMappingURL=style01.css.map */

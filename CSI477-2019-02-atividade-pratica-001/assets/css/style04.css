@@ -1,0 +1,21 @@
+.container-fluid .row:nth-child(even) {
+  background: #cccccc;
+}
+
+.container-fluid .row:nth-child(odd) {
+  background: #ff5858;
+}
+
+.container .col-md-3 {
+  margin-left: auto;
+}
+
+.container .col-md-3 img {
+  width: 100%;
+}
+
+.container .borda-01 {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=style04.css.map */
