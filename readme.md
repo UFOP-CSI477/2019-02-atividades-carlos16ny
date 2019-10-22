@@ -13,10 +13,10 @@ echo ("Hello World")
     ---
 
 - Atividades:
-    - [x] Atividade 00 
+    - [x] Atividade 00
         - (First Commit) => readme.md
         ---
-    - [x] Atividade 01 
+    - [x] [Atividade 01](Atividade-01/index.html)
         - Pagina principal:
             - Produtos
                 - Cadastrar
@@ -43,12 +43,12 @@ echo ("Hello World")
         - Cadastro de Clientes
         - Formulário de Vendas
         ---
-    - [x] Atividade 02
+    - [x] [Atividade 02](Atividade-02/index.html)
         - Incluir CSS na Atividade 01
         ---
-    - [ ] Atividade 03
+    - [ ] [Atividade 03](Atividade-03/index.html)
         - Adicionar Bootstrap4 na Atividade 02
         ---
-    - [ ] Atividade 04
+    - [ ] [Atividade 04](Atividade-04/index.html)
         - Realizar verificação de formulário com JS
         ---
