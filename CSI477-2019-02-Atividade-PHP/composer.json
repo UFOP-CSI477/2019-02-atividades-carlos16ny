@@ -1,0 +1,5 @@
+{
+    "require": {
+        "laravel-frontend-presets/argon": "^1.0"
+    }
+}
