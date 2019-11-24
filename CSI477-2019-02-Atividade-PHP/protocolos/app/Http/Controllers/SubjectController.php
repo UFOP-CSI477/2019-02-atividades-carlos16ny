@@ -14,7 +14,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::all();
+        return view('subject.index', ['subjects' => $subjects]);
     }
 
     /**
@@ -78,8 +79,10 @@ class SubjectController extends Controller
      * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $subject)
+    public function destroy(Request $req)
     {
-        //
+        $cert = Subject::find($req->query('subject'));
+        $cert->delete();
+        return redirect()->route('subjects')->withStatus(__('Cartificado Deletado Com Sucesso'));
     }
 }

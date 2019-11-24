@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Subject;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $solicitacoes = Subject::paginate(5);
+        return view('dashboard', ['solicitacoes' => $solicitacoes]);
     }
 }
