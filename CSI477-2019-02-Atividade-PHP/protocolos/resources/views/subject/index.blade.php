@@ -17,6 +17,15 @@
                         </button>
                     </div>
                 @endif
+                @if(session('errors'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="alert-inner--icon"><i class="ni ni-unlike-2"></i></span>
+                        <span class="alert-inner--text">{{ session('errors') }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -24,7 +33,9 @@
                                 <h3 class="mb-0">Tipos de Certificados</h3>
                             </div>
                             <div class="col text-right">
-
+                                @if(auth()->user()->type == 1) 
+                                <a href="{{ route('subject.create') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Certificado') }}</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -42,13 +53,13 @@
                             </thead>
                             <tbody>
                                 
-                                @foreach ($subjects as $s)
+                                @foreach ($subjects as $subject)
                                     <tr>
                                         <th scope="row">
-                                            {{ $s->name }}
+                                            {{ $subject->name }}
                                         </th>
                                         <th >
-                                            {{ $s->price }}
+                                            {{ $subject->price }}
                                         </th>
                                         @if ( auth()->user()->type == 1)
                                         <th class="text-right">
@@ -57,14 +68,14 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                        <form action="{{ route('subject.destroy', ['subject' => $s]) }}" method="post">
+                                                        <form action="{{ route('subject.destroy', ['subject' => $subject]) }}" method="post">
                                                             @csrf
                                                             @method('delete')
                                                             <button type="button" class="dropdown-item" onclick="confirm('{{ __("Quer realmente deletar esse cerificado ?") }}') ? this.parentElement.submit() : ''">
                                                                 {{ __('Excluir') }}
                                                             </button>
                                                         </form>    
-                                                        <a class="dropdown-item" href="{{ route('user.edit', $s) }}">{{ __('Editar') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('subject.edit', $subject) }}">{{ __('Editar') }}</a>
                                                     
                                                 </div>
                                             </div>
