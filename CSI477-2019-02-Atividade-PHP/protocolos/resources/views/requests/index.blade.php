@@ -29,6 +29,7 @@
                                 <th scope="col">Solicitante</th>
                                 <th scope="col">Data</th>
                                 <th scope="col">Preço</th>
+                                <th scope="col">Infos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +51,9 @@
                                     <th >
                                         {{ $s->preco }}
                                     </th>
+                                    <th >
+                                        <a href="{{ route('requisicao.edit', ['request' => $s->id]) }}">Ver</a>
+                                    </th>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -59,6 +63,7 @@
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                                 <th scope="col">{{ $soma }}</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                     </table>

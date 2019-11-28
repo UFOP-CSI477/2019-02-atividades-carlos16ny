@@ -75,7 +75,7 @@
                                                                 {{ __('Excluir') }}
                                                             </button>
                                                         </form>    
-                                                        <a class="dropdown-item" href="{{ route('subject.edit', $subject) }}">{{ __('Editar') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('subject.edit', ['subject' => $subject]) }}">{{ __('Editar') }}</a>
                                                     
                                                 </div>
                                             </div>

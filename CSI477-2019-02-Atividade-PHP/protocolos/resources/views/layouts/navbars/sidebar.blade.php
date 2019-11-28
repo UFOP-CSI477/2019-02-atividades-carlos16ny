@@ -92,7 +92,7 @@
                     <div class="collapse show" id="categorias">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('requisicoes.index') }}">
+                                <a class="nav-link" href="{{ route('subjects') }}">
                                     {{ __('Todos Certificados') }}
                                 </a>
                             </li>

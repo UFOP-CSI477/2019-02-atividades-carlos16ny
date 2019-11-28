@@ -6,67 +6,47 @@
     <div class="row mt-5">
 
         <div class="col-xl-12 mb-5 mb-xl-0">
-            <div class="card shadow">
-
-                <div class="card-header border-0">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
                     <div class="row align-items-center">
-                            {{ $subject->name }}
-
-                        {{-- <div class="col">
-                            @if(auth()->user()->type == 1)
-                            <h3 class="mb-0">Todas Requisições</h3>
-                            @else 
-                            <h3 class="mb-0">Minhas Requisições</h3>
-                            @endif
-                        </div>
-                        <div class="col text-right">
-                            <a href="{{ route('home') }}" class="btn btn-sm btn-primary">Voltar</a>
-                        </div> --}}
+                        <h3 class="col-12 mb-0">{{ __('Editar Certificado') }}</h3>
                     </div>
                 </div>
-                {{-- <div class="table-responsive">
-                    <!-- Projects table -->
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Nome do Certificado</th>
-                                <th scope="col">Solicitante</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">Preço</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php $soma = 0; @endphp
-                            @foreach ($solicitacoes as $s)
-                                @php
-                                    $soma += $s->preco;
-                                @endphp
-                                <tr>
-                                    <th scope="row">
-                                        {{ $s->snome }}
-                                    </th>
-                                    <th >
-                                        {{ $s->unome }}
-                                    </th>
-                                    <th >
-                                        {{ $s->data }}
-                                    </th>
-                                    <th >
-                                        {{ $s->preco }}
-                                    </th>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Soma</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col">{{ $soma }}</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div> --}}
+                <div class="card-body">
+                    <form method="post" action="{{ route('subject.edit') }}" autocomplete="off">
+                        @csrf
+                        @method('put')
+
+                        <h6 class="heading-small text-muted mb-4">{{ __('Informações do Certificado') }}</h6>
+                        
+                        @if (session('status'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('status') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+
+                        <div class="pl-lg-4">
+                            <div class="form-group{{ $errors->has('req') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-name">{{ __('Nome do Certificado') }}</label>
+                                <input class="form-control form-control-alternative" type="text" name="name" value="{{ $subject->name }}">
+                            </div>
+
+                            <div class="form-group{{ $errors->has('req') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-name">{{ __('Preço do Certificado') }}</label>
+                                <input class="form-control form-control-alternative" type="text" name="price" value="{{ $subject->price }}">
+                            </div>
+
+                            <input type="hidden" name="id" value="{{ $subject->id }}">
+        
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success mt-4">{{ __('Salvar') }}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

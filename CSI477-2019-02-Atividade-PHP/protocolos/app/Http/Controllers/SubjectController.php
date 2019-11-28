@@ -37,7 +37,12 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        Subject::create([
+            'name' => $request->name,
+            'price' => floatVal($request->price)
+        ]);
+
+        return back()->withStatus(__('Certificado Criado Com Sucesso'));
     }
 
     /**
@@ -57,9 +62,9 @@ class SubjectController extends Controller
      * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subject $subject)
+    public function edit(Request $req)
     {
-        dd($subject);
+        $subject = Subject::find($req->query('subject'));
         return view('subject.edit', compact('subject'));
     }
 
@@ -70,9 +75,17 @@ class SubjectController extends Controller
      * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request)
     {
-        //
+        $subject = Subject::find($request->id);
+        $subject->update(
+            [
+                'name' => $request->name,
+                'price' => $request->price
+            ]
+        );
+
+        return back()->withStatus(__("Edição Realizada Com Sucesso"));
     }
 
     /**

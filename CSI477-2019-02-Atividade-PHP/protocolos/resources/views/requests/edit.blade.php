@@ -8,13 +8,15 @@
             <div class="card bg-secondary shadow">
                 <div class="card-header bg-white border-0">
                     <div class="row align-items-center">
-                        <h3 class="col-12 mb-0">{{ __('Adicione Uma Nova Requisição') }}</h3>
+                        <h3 class="col-12 mb-0">{{ __('Editar Requisição') }}</h3>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('requisicoes.create') }}" autocomplete="off">
+                    <form method="post" action="{{ route('requisicao.update') }}" autocomplete="off">
                         @csrf
-                        @method('post')
+                        @method('put')
+
+                        <h6 class="heading-small text-muted mb-4">{{ __('Informações da Requisição') }}</h6>
                         
                         @if (session('status'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -29,31 +31,29 @@
                             <div class="form-group{{ $errors->has('req') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-name">{{ __('Tipo da Requisição') }}</label>
                                 <select name="subject_id" id="" class="form-control form-control-alternative">
-                                    @foreach ($req as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @foreach ($subjects as $s)
+                                        <option value="{{ $s->id }}"  {{ __($s->id == $requisicao[0]->sid ? 'selected' : '') }} >{{ $s->name }}</option>
                                     @endforeach
                                 </select>
-                        
-                                @if ($errors->has('req'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('req') }}</strong>
-                                    </span>
-                                @endif
+                            </div>
+                            <div class="form-group{{ $errors->has('req') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-name">{{ __('Solicitante da Requisição') }}</label>
+                                <select name="user_id" id="" class="form-control form-control-alternative">
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}" {{ __($user->id == $requisicao[0]->uid ? 'selected' : '') }}>{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group{{ $errors->has('req') ? ' has-danger' : '' }}">
                             
                                 <label class="form-control-label" for="input-name">{{ __('Descrição da Requisição') }}</label>
-                                <textarea rows="6" class="form-control form-control-alternative" name="description"></textarea>
+                                <textarea rows="6" class="form-control form-control-alternative" name="description">
+                                {{ $requisicao[0]->description }}
+                                </textarea>
 
-                                @if ($errors->has('req'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('req') }}</strong>
-                                    </span>
-                                @endif
                             </div>
 
-                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-
+                            <input type="hidden" name="id" value="{{ $requisicao[0]->rid }}">
         
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success mt-4">{{ __('Salvar') }}</button>

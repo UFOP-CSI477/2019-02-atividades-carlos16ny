@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('certificados/novo', ['as' => 'subject.store', 'uses' => 'SubjectController@store']);
 
 	Route::get('requisicoes', ['as' => 'requisicoes.index', 'uses' => 'RequestController@index']);
+	Route::get('requisicoes/edit', ['as' => 'requisicao.edit', 'uses' => 'RequestController@edit']);
+	Route::put('requisicoes/edit', ['as' => 'requisicao.update', 'uses' => 'RequestController@update']);
 	Route::get('requisicoes/nova', ['as' => 'requisicoes.add', 'uses' => 'RequestController@nova']);
 	Route::post('requisicoes/nova', ['as' => 'requisicoes.create', 'uses' => 'RequestController@create']);
 });
