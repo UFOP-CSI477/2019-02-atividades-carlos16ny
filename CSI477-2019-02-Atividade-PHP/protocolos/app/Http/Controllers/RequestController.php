@@ -16,22 +16,34 @@ class RequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Req $request)
     {
-        if(auth()->user()->type == 1){
+        if($request->query('data') && $request->query('user_id')){
             $solicitacoes = DB::table('requests')->join('users', 'requests.user_id', '=', 'users.id')
                                                  ->join('subjects', 'requests.subject_id', '=', 'subjects.id')
                                                  ->select('subjects.name as snome', 'users.name as unome', 'requests.date as data', 'subjects.price as preco', 'requests.id as id')
-                                                 ->get();                                           
-        }else{
-            $solicitacoes = DB::table('requests')->join('users', 'requests.user_id', '=', 'users.id')
-                                                 ->join('subjects', 'requests.subject_id', '=', 'subjects.id')
-                                                 ->select('subjects.name as snome', 'users.name as unome', 'requests.date as data', 'subjects.price as preco', 'requests.id as id')
-                                                 ->where('users.id', '=', auth()->user()->id)
+                                                 ->where('users.id', '=', $request->query('user_id'))
+                                                 ->where('requests.date', '=', $request->query('data'))
                                                  ->get();
+
+        }else{                                                  
+
+            if(auth()->user()->type == 1){
+                $solicitacoes = DB::table('requests')->join('users', 'requests.user_id', '=', 'users.id')
+                                                    ->join('subjects', 'requests.subject_id', '=', 'subjects.id')
+                                                    ->select('subjects.name as snome', 'users.name as unome', 'requests.date as data', 'subjects.price as preco', 'requests.id as id')
+                                                    ->get();                                           
+            }else{
+                $solicitacoes = DB::table('requests')->join('users', 'requests.user_id', '=', 'users.id')
+                                                    ->join('subjects', 'requests.subject_id', '=', 'subjects.id')
+                                                    ->select('subjects.name as snome', 'users.name as unome', 'requests.date as data', 'subjects.price as preco', 'requests.id as id')
+                                                    ->where('users.id', '=', auth()->user()->id)
+                                                    ->get();
+            }
         }
 
-        return view('requests.index', ['solicitacoes' => $solicitacoes]);
+        $users = User::all();
+        return view('requests.index', ['solicitacoes' => $solicitacoes, 'users' => $users , 'data' => $request->query('data'), 'user_id' => $request->query('user_id')]);
 
     }
 
