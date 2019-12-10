@@ -13,11 +13,13 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('geral', 'GeralController@index')->name('geral');
+Route::get('geral/projetos', 'GeralController@projetos')->name('geralProjetos');
+
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');
