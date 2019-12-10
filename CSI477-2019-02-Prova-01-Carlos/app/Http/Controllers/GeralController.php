@@ -20,4 +20,20 @@ class GeralController extends Controller
 
         return view('geral.projetos', ['projetos' => $projetos]);
     }
+
+    function professorArea(Request $req){
+        $area = $req->area;
+        $professores = DB::table('users')
+                           ->select('id', 'name', 'area')
+                           ->where('area', 'like', '%'. $area . '%')
+                           ->orderBy('area', 'asc')
+                           ->orderBy('nome', 'asc')
+                           ->get();
+
+        if(empty($professores->items)){
+            $professores = DB::table('users')->select('id', 'name', 'area')->get();
+        }
+
+        return view('geral.pesquisa', ['professores' => $professores]);
+    }
 }

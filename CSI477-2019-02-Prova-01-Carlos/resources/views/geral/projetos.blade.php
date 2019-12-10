@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'projetos', 'title' => __('Easy TCC')])
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'geral', 'title' => __('Easy TCC')])
 @section('content')
     <div class="container">
         <div class="row pl-3 mb-3">

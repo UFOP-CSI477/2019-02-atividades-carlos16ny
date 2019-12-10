@@ -14,7 +14,7 @@
               </a>
             </div>
             <div class="col-md-6 d-flex justify-content-center">
-              <a href="">
+              <a href="{{ route('home') }}">
                 <button class="btn btn-primary btn-round btn-lg">
                   <i class="fa fa-university"></i> Professores
                 </button>

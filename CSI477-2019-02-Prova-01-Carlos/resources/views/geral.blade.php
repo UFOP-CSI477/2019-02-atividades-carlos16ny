@@ -14,7 +14,8 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">Pesquisa por Área de Conhecimento</h4>
-                        <form action="" method="post">
+                        <form action="{{ route('geralPesquisa') }}" method="post">
+                            @csrf
                             <div class="form-group mt-4">
                               <label for="">Área</label>
                               <input type="text" class="form-control" name="area" id="" aria-describedby="helpId" placeholder="">

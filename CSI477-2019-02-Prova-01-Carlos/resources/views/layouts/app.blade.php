@@ -22,7 +22,11 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            @include('layouts.page_templates.auth')
+            @if($activePage == 'home' || $activePage == 'geral')
+              @include('layouts.page_templates.guest')
+            @else
+              @include('layouts.page_templates.auth')
+            @endif
         @endauth
         @guest()
             @include('layouts.page_templates.guest')
