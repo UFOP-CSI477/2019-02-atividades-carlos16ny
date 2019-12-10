@@ -27,6 +27,8 @@ Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('admin/alunos', 'HomeController@alunos')->name('adminAlunos');
 	Route::get('admin/professores', 'HomeController@professores')->name('adminProfessores');
+	Route::get('admin/projeto', 'HomeController@projetos')->name('adminProjeto');
+	Route::post('admin/projeto', 'HomeController@inserir')->name('adminInserir');
 });
 
 Route::group(['middleware' => 'auth'], function () {

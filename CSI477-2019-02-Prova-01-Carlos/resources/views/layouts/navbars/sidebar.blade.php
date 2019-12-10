@@ -24,7 +24,7 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'projeto' ? ' active' : '' }}">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('adminProjeto') }} ">
           <i class="material-icons">unarchive</i>
             <p>{{ __('Criar Projeto') }}</p>
         </a>
